@@ -2,9 +2,9 @@
 // Device name / hostname - Hostname may not work on all DCHP setups
 const char* host          = "ESP-AP";
 
-const char*   ssid        = "TinkerToys";         // unconfigured ssid
+const char*   ssid        = "test";         // unconfigured ssid
 //const char*   ssid        = "0";            // unconfigured ssid
-const char*   password    = "0Defect0";            // unconfigured wifi password
+const char*   password    = "0";            // unconfigured wifi password
 
 
 /*
