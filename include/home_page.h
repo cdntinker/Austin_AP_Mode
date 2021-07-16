@@ -1,7 +1,7 @@
 /* Webpage HTML - this is the homepage*/ 
 
-#ifndef homepage_h
-#define homepage_h
+#ifndef home_page_h
+#define home_page_h
 
 const char home_html[] PROGMEM = R"rawliteral(
 <!DOCTYPE HTML>
@@ -81,4 +81,4 @@ const char home_html[] PROGMEM = R"rawliteral(
   </body>
 </html>
 )rawliteral";
-#endif
+#endif  // home_page_h

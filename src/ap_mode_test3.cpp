@@ -40,7 +40,7 @@
 #include "FS.h"
 
 #include "config.h"             // wifi and other config
-#include "homepage.h"           // website home page
+#include "home_page.h"           // website home page
 #include "config_page.h"        // website configuration page
 
 String processor(const String &var);
