@@ -41,7 +41,8 @@
 #include "config.h"             // wifi and other config
 #include "homepage.h"           // website home page
 #include "config_page.h"        // website configuration page
-#include "processing_items.h"   // processor for webpage varibles
+
+String processor(const String &var);
 
 AsyncWebServer server(80);
 
