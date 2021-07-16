@@ -1,3 +1,6 @@
+#ifndef CSS_h
+#define CSS_h
+
 const char CSS_STYLE[] PROGMEM = R"rawliteral(
   <style>
   %dark%
@@ -208,3 +211,5 @@ const char CSS_STYLE[] PROGMEM = R"rawliteral(
 
   </style>
 )rawliteral";
+
+#endif //

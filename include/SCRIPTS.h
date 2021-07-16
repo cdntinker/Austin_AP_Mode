@@ -1,3 +1,6 @@
+#ifndef SCRIPTS_h
+#define SCRIPTS_h
+
 const char CSS_SCRIPTS[] PROGMEM = R"rawliteral(
 <script>
   function darkFunction()
@@ -36,3 +39,5 @@ const char CSS_SCRIPTS[] PROGMEM = R"rawliteral(
 
   </script>
 )rawliteral";
+
+#endif //

@@ -1,10 +1,14 @@
-/* Webpage HTML - this is the homepage*/ 
+/* Y U put functions in a header file??? */
+/*              :face_palm:              */
+
+#include <Arduino.h>
 
 #ifndef processing_items_h
 #define processing_items_h
 
 #include "CSS.h"
 #include "SCRIPTS.h"
+#include "MACROS.h"
 
 String DeviceID()
 {
@@ -94,7 +98,7 @@ return CSS_SCRIPTS;
   if(var == "type"){
     String typeing = "";
                 #if defined(typetitle)
-                      typeing += typetitle;
+                      typeing += STR(typetitle);
                 #else 
                       typeing +=  "WHAT AM I?";
                 #endif
