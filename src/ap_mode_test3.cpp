@@ -16,7 +16,8 @@
  * 
  * homepage and config page availible in both modes
  * 
- * auto reconnect can work like the online status where it expects a respones / request every so often...? - YES THIS WORKS
+ * auto reconnect can work like the online status where it expects a
+ * respones / request every so often...? - YES THIS WORKS
  * 
  * 
  */
