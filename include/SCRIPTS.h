@@ -23,10 +23,6 @@ const char CSS_SCRIPTS[] PROGMEM = R"rawliteral(
         {
         document.getElementById("state").style.background = "green";
         }
-      else if (this.status === 205)
-        {
-        document.getElementById("state").style.background = "blue";
-        }
       else
         {
         document.getElementById("state").style.background = "red";
