@@ -12,6 +12,7 @@
 extern int darkState;
 extern const char* htmlcolor;
 extern const char* htmlhover;
+extern const char* host;
 
 String DeviceID();
 String ip3string(IPAddress ip);
@@ -19,6 +20,7 @@ String processor(const String &var);
 
 #include "CSS.h"
 #include "SCRIPTS.h"
+#include "Standard_Page_Parts.h"
 #include "MACROS.h"
 
 String DeviceID()
@@ -49,6 +51,17 @@ String processor(const String &var)
   {
     return CSS_SCRIPTS;
   }
+
+  if (var == "Page_Header")
+  {
+    return Page_Header;
+  }
+
+    if (var == "Page_Footer")
+  {
+    return Page_Footer;
+  }
+  
   if (var == "title")
   {
     String titleing = "";
