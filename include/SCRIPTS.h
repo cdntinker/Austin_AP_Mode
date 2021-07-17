@@ -17,13 +17,17 @@ const char CSS_SCRIPTS[] PROGMEM = R"rawliteral(
   xhttp.timeout = 2000;
   xhttp.onreadystatechange = function()
     {
-    if (this.readyState == 4)
+    if (this.readyState === 4)
       {
-      if (this.status == 200)
+      if (this.status === 200)
         {
         document.getElementById("state").style.background = "green";
         }
-        else
+      else if (this.status === 205)
+        {
+        document.getElementById("state").style.background = "blue";
+        }
+      else
         {
         document.getElementById("state").style.background = "red";
         }
