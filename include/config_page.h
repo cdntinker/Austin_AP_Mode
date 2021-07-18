@@ -4,7 +4,7 @@
 #define config_page_h
 
 const char config_html[] PROGMEM = R"rawliteral(
-<!DOCTYPE HTML>
+<!DOCTYPE HTML5>
 <html>
   <head>
     <title>%title% Config</title>

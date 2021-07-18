@@ -4,7 +4,7 @@
 #define home_page_h
 
 const char home_html[] PROGMEM = R"rawliteral(
-<!DOCTYPE HTML>
+<!DOCTYPE HTML5>
 <html>
   <head>
     <title>%title% Home</title>
