@@ -21,7 +21,10 @@ String processor(const String &var);
 #include "CSS.h"
 #include "SCRIPTS.h"
 #include "Standard_Page_Parts.h"
-#include "MACROS.h"
+
+/* Convert a #defined value to a string */
+#define ST(A) #A
+#define STR(A) ST(A)
 
 String DeviceID()
 {
