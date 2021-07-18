@@ -202,6 +202,8 @@ void setup()
   delay(200);
 
   Serial.println("\n Starting");
+  Serial.print("Firmware size: ");
+  Serial.println(ESP.getSketchSize());
 
   if (strcmp(ssid, "0") == 0)
   {

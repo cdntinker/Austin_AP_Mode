@@ -4,15 +4,15 @@
 #include <Arduino.h>
 
 #if defined(ESP8266)
-#include "ESP8266WiFi.h"
+    #include "ESP8266WiFi.h"
 #elif defined(ESP32)
-#include "WiFi.h"
+    #include "WiFi.h"
 #endif
 
 extern int darkState;
-extern const char *htmlcolor;
-extern const char *htmlhover;
-extern const char *host;
+extern const char* htmlcolor;
+extern const char* htmlhover;
+extern const char* host;
 
 String DeviceID();
 String ip3string(IPAddress ip);
@@ -26,7 +26,7 @@ String processor(const String &var);
 #define ST(A) #A
 #define STR(A) ST(A)
 
-String DeviceID()                     // This code compiles to 16 bytes
+String DeviceID()
 {
 #if defined(DeviceName)
   String id = STR(DeviceName);
@@ -36,14 +36,15 @@ String DeviceID()                     // This code compiles to 16 bytes
   return id;
 }
 
-String ip3string(IPAddress ip)        // This code compiles to 608 bytes
+String ip3string(IPAddress ip)
 {
   String ret = String(ip[0]) + "." + String(ip[1]) + "." + String(ip[2]) + "." + String(ip[3]);
   return ret;
 }
 
-String processor(const String &var)   // This code compiles to 7488 bytes
+String processor(const String &var)
 { // Change placeholders on webpage
+// This code compiles to 7616 bytes
 
   if (var == "The_CSS")
   {
@@ -60,80 +61,91 @@ String processor(const String &var)   // This code compiles to 7488 bytes
     return Page_Header;
   }
 
-  if (var == "Page_Footer")
+    if (var == "Page_Footer")
   {
     return Page_Footer;
   }
-
+  
   if (var == "title")
   {
+    String titleing = "";
 #if defined(htmltitle)
-    return String(htmltitle);
+    titleing += htmltitle;
 #elif defined(DeviceName)
-    return String(DeviceID());
+    titleing += DeviceID();
 #endif
+    return titleing;
   }
-
   if (var == "dark")
   {
+    String dark = "";
     if (darkState == false)
     {
-      return String("body { background-color: white; color: black; }");
+      dark += "body { background-color: white; color: black; }";
     }
     else
     {
-      return String("body { background-color: black; color: white; }");
+      dark += "body { background-color: black; color: white; }";
     }
+    return dark;
   }
-
   if (var == "color")
   {
-    return String(htmlcolor);
+    String coloring = "";
+    coloring += htmlcolor;
+    return coloring;
   }
-
   if (var == "hover")
   {
-    return String(htmlhover);
+    String hovering = "";
+    hovering += htmlhover;
+    return hovering;
   }
-
   if (var == "ipplaceholder")
   {
-    return String(ip3string(WiFi.localIP()));
+    String iping = "";
+    iping += ip3string(WiFi.localIP());
+    return iping;
   }
-
   if (var == "macplaceholder")
   {
-    return String(WiFi.macAddress());
+    String macing = "";
+    macing += WiFi.macAddress();
+    return macing;
   }
-
   /////////////////////////////////////////////
   if (var == "binplaceholder")
   {
-    return String(ESP.getSketchSize());
+    String macing = "";
+    macing += ESP.getSketchSize();
+    return macing;
   }
   /////////////////////////////////////////////
-
   if (var == "IDplaceholder")
   {
-    return String(DeviceID());
+    String IDing = "";
+    IDing += DeviceID();
+    return IDing;
   }
-
   if (var == "processorplaceholder")
   {
+    String PROing = "";
 #if defined(ESP8266)
-    return String("ESP8266");
+    PROing += "ESP8266";
 #elif defined(ESP32)
-    return String("ESP32");
+    PROing += "ESP32";
 #endif
+    return PROing;
   }
-
   if (var == "type")
   {
+    String typeing = "";
 #if defined(typetitle)
-    return String(STR(typetitle));
+    typeing += STR(typetitle);
 #else
-    return String("WHAT AM I?");
+    typeing += "WHAT AM I?";
 #endif
+    return typeing;
   }
 
   return String();
