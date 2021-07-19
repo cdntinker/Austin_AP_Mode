@@ -26,7 +26,7 @@ String processor(const String &var);
 #define ST(A) #A
 #define STR(A) ST(A)
 
-String DeviceID()                     // This code compiles to 16 bytes
+String DeviceID() // This code compiles to 16 bytes
 {
 #if defined(DeviceName)
   String id = STR(DeviceName);
@@ -36,14 +36,14 @@ String DeviceID()                     // This code compiles to 16 bytes
   return id;
 }
 
-String ip3string(IPAddress ip)        // This code compiles to 608 bytes
+String ip3string(IPAddress ip) // This code compiles to 608 bytes
 {
   String ret = String(ip[0]) + "." + String(ip[1]) + "." + String(ip[2]) + "." + String(ip[3]);
   return ret;
 }
 
-String processor(const String &var)   // This code compiles to 7488 bytes
-{ // Change placeholders on webpage
+String processor(const String &var) // This code compiles to 7488 bytes
+{                                   // Change placeholders on webpage
 
   if (var == "The_CSS")
   {
@@ -70,7 +70,7 @@ String processor(const String &var)   // This code compiles to 7488 bytes
 #if defined(htmltitle)
     return String(htmltitle);
 #elif defined(DeviceName)
-    return String(DeviceID());
+    return DeviceID();
 #endif
   }
 
@@ -78,32 +78,32 @@ String processor(const String &var)   // This code compiles to 7488 bytes
   {
     if (darkState == false)
     {
-      return String("body { background-color: white; color: black; }");
+      return "body { background-color: white; color: black; }";
     }
     else
     {
-      return String("body { background-color: black; color: white; }");
+      return "body { background-color: black; color: white; }";
     }
   }
 
   if (var == "color")
   {
-    return String(htmlcolor);
+    return htmlcolor;
   }
 
   if (var == "hover")
   {
-    return String(htmlhover);
+    return htmlhover;
   }
 
   if (var == "ipplaceholder")
   {
-    return String(ip3string(WiFi.localIP()));
+    return ip3string(WiFi.localIP());
   }
 
   if (var == "macplaceholder")
   {
-    return String(WiFi.macAddress());
+    return WiFi.macAddress();
   }
 
   /////////////////////////////////////////////
@@ -115,24 +115,24 @@ String processor(const String &var)   // This code compiles to 7488 bytes
 
   if (var == "IDplaceholder")
   {
-    return String(DeviceID());
+    return DeviceID();
   }
 
   if (var == "processorplaceholder")
   {
 #if defined(ESP8266)
-    return String("ESP8266");
+    return "ESP8266";
 #elif defined(ESP32)
-    return String("ESP32");
+    return "ESP32";
 #endif
   }
 
   if (var == "type")
   {
 #if defined(typetitle)
-    return String(STR(typetitle));
+    return STR(typetitle);
 #else
-    return String("WHAT AM I?");
+    return "WHAT AM I?";
 #endif
   }
 
